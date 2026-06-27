@@ -28,7 +28,7 @@ export class Task {
    */
   @ApiProperty({ description: '任务ID', example: 1 })
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   /**
    * 任务标题
@@ -38,7 +38,7 @@ export class Task {
    */
   @ApiProperty({ description: '任务标题', example: '完成需求评审' })
   @Column({ length: 100 })
-  title: string;
+  title!: string;
 
   /**
    * 任务描述（可选字段）
@@ -49,7 +49,7 @@ export class Task {
    */
   @ApiProperty({ description: '任务描述', example: '详细描述任务内容', required: false })
   @Column({ type: 'text', nullable: true })
-  description: string;
+  description!: string;
 
   /**
    * 任务状态（枚举类型）
@@ -60,7 +60,7 @@ export class Task {
    */
   @ApiProperty({ description: '任务状态', enum: TaskStatus, example: TaskStatus.TODO })
   @Column({ type: 'enum', enum: TaskStatus, default: TaskStatus.TODO })
-  status: TaskStatus;
+  status!: TaskStatus;
 
   /**
    * 创建时间（自动填充）
@@ -70,7 +70,7 @@ export class Task {
    */
   @ApiProperty({ description: '创建时间' })
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 
   /**
    * 更新时间（自动更新）
@@ -80,5 +80,5 @@ export class Task {
    */
   @ApiProperty({ description: '更新时间' })
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt!: Date;
 }
